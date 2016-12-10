@@ -5,7 +5,7 @@ const { createJobs } = require('../models/jobs')
 
 
 router.post('/', createJobs,(req,res)=> {
-  res.status(200).end();
+ res.json(res.rows);
 });
 
 module.exports = router;

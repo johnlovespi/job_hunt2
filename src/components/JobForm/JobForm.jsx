@@ -4,26 +4,23 @@ import './JobForm.css';
 // function handleKeyPress(e, cb) {
 //   if (e.key === 'Enter') cb();
 // }
-
-class JobForm extends Component {
-render(){
-  return (
+const JobForm = (props)=> {
+return (
     <div className="p_title">
       <h2>Post A Job</h2>
-
         <div id="form">
           <form>
-            <input type="text" name="name" value={this.props.jobsFormName} onChange={this.props.updateFormName}/>
-            <input type="text" name="title" value={this.props.jobsFormTitle} onChange={this.props.updateFormTitle}/>
-            <input type="text" name="description"value={this.props.jobsFormDescription} onChange={this.props.updateFormDescription}/>
-            <input type="text" name="url" value={this.props.jobsFormUrl} onChange={this.props.updateFormUrl}/>
-            <input type="text" name="contact" value={this.props.jobsFormContact} onChange={this.props.updateFormContact}/>
-            <input type="text" name="phone" value={this.props.jobsFormPhone} onChange={this.props.updateFormPhone}/>
-            <button> Submit Post </button>
+            <input type="text" placeholder="name"        name="name"         onChange={props.updateFormName} />
+            <input type="text" placeholder="title"       name="title"        onChange={props.updateFormTitle} />
+            <input type="text" placeholder="description" name="description"  onChange={props.updateFormDescription} />
+            <input type="text" placeholder="url"         name="url"          onChange={props.updateFormUrl} />
+            <input type="text" placeholder="contact"   name="contact"          onChange={props.updateFormContact} />
+            <input type="text" placeholder="phone"    name="phone"             onChange={props.updateFormPhone} />
+            <button onClick={props.postJobs}> Submit Post </button>
           </form>
         </div>
-  </div>
-   );
-  }
+    </div>
+  );
 }
+
 export default JobForm;

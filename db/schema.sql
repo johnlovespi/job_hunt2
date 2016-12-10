@@ -13,10 +13,5 @@ contact VARCHAR NOT NULL,
 phone VARCHAR NOT NULL
 );
 
-
-
-
-
-
 COMMIT;
 

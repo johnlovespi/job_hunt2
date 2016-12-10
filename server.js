@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
-// const cookieParser  = require('cookie-parser');
+const cookieParser  = require('cookie-parser');
 // const usersRouter   = require('./routes/users');
 // const authRouter    = require('./routes/auth');
 
@@ -22,4 +22,4 @@ app.use(logger('dev'));
 app.listen(PORT, () => console.log('Server is listening on port', PORT));
 
 
-app.use('/db/jobs', jobsRouter);
+app.use('/db/job_hunt2', jobsRouter);

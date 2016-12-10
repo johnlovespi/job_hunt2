@@ -12,25 +12,69 @@ class App extends Component {
       descripition: '',
       url: '',
       contact:'',
-      phone:'',
-
-
+      phone:''
     }
   }
 
+
+getAllJobs(){
+  fetch(`/db/job_hunt2`)
+  .then(r=> r.json())
+  .then((data)=>{
+    this.setState({
+      jobs:data
+    });
+  })
+  .catch(err => console.log(err))
+
+}
+//inputs for all val for db rows
+
+updateFormName(e){
+  this.setState({
+    name: e.target.value,
+  });
+}
+updateFormTitle(e){
+  this.setState({
+    title: e.target.value,
+  });
+}
+updateFormDescription(e){
+  this.setState({
+    descripition: e.target.value,
+  });
+}
+updateFormUrl(e){
+  this.setState({
+    url: e.target.value,
+  });
+}
+updateFormContact(e){
+  this.setState({
+    contact: e.target.value,
+  });
+}
+updateFormPhone(e){
+  this.setState({
+    phone: e.target.value,
+  });
+}
+
+// This function will post to db jobs row
 postJobs() {
-  fetch('/db/jobs', {
+fetch('/db/job_hunt2', {
     headers: {
       'Content-Type': 'application/json'
     },
       method: 'POST',
       body: JSON.stringify({
-        name: this.state.jobsFormName,
-        title: this.state.jobsFormTitle,
-        descripition: this.state.jobsFormDescription,
-        url: this.state.jobsFormUrl,
-        contact:this.state.jobsFormContact,
-        phone:this.state.jobsFormPhone,
+        name: this.state.name,
+        title: this.state.title,
+        descripition: this.state.descripition,
+        url: this.state.url,
+        contact:this.state.contact,
+        phone:this.state.phone
       })
   })
   .then(this.setState ({
@@ -39,44 +83,32 @@ postJobs() {
      descripition: '',
      url: '' ,
      contact:'',
-     phone:'',
+     phone:''
   }))
-  // .then(this.)
+  .then(this.getAllJobs())
   .catch(err => console.log(err));
 
 }
 
+// handleFormSubmit() {
+//   fetch(`/db/jobs_hunt2?name=${this.state.name}`, {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       method: 'GET',
 
-updateFormName(e){
-  this.setState({
-    updateFormName:e.target.value,
-  });
-}
-updateFormTitle(e){
-  this.setState({
-    updateFormTitle:e.target.value,
-  });
-}
-updateFormDescription(e){
-  this.setState({
-    updateFormDescription:e.target.value,
-  });
-}
-updateFormUrl(e){
-  this.setState({
-    updateFormUrl:e.target.value,
-  });
-}
-updateFormContact(e){
-  this.setState({
-    updateFormContact:e.target.value,
-  });
-}
-updateFormPhone(e){
-  this.setState({
-    updateFormPhone:e.target.value,
-  });
-}
+//     })
+//     .then(this.setState({
+//       name: '',
+//       zipcode: '',
+//       user_id: ''
+//     }))
+//     .then(this.getAllGardens())
+//     .catch(err => console.log(err));
+//   }
+
+
+
 
 render(){
     return (
@@ -89,12 +121,14 @@ render(){
         jobsFormContact={this.state.jobsFormContact}
         jobsFormPhone={this.state.jobsFormPhone}
 
-        updateFormName={event => this.update.updateFormName(event)}
-        updateFormTitle={event => this.update.updateFormTitle(event)}
-        updateFormDescription={event => this.update.updateFormDescription(event)}
+        updateFormName={event => this.updateFormName(event)}
+
+        updateFormTitle={event => this.updateFormTitle(event)}
+        updateFormDescription={event => this.updateFormDescription(event)}
         updateFormUrl={event => this.updateFormUrl(event)}
         updateFormContact={event => this.updateFormContact(event)}
         updateFormPhone={event => this.updateFormPhone(event)}
+        postJobs={event => this.postJobs(event)}
 
       />
       <DisplayItem
