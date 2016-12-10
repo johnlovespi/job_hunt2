@@ -1,15 +1,10 @@
-import React, { Component} 'react';
-import DisplayItemList from './DisplayItemList/DisplayItemList.css';
-import DisplayItem from './DisplayItem/DisplayItem.jsx';
+import React, { Component } from 'react';
+import DisplayItem from '../DisplayItem/DisplayItem.jsx';
 
 
 class DisplayItemList extends Component {
-
-  componentWillMount() {
-    this.props.getAllJobs();
-  }
-
   showCollection(collection) {
+
     return collection.map((jobs,index) =>
      <article className = "border"
         key={index} onClick={()=>this.props.changeSelection(index)}>
@@ -26,16 +21,18 @@ class DisplayItemList extends Component {
   );
 
 }
+  componentWillMount() {
+    this.props.getAllJobs();
+  }
 
   render(){
     return(
           <div className="list-container" >
-            {this.showCollection(this.props.collection)}
+            {this.showCollection}
           </div>
 
       )
   }
-
 }
 
 

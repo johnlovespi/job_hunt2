@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import Landp from './Landp/Landp.jsx';
 import JobForm from './JobForm/JobForm.jsx';
-import DisplayItem from './DisplayItem/DisplayItem.jsx';
+// import DisplayItem from './DisplayItem/DisplayItem.jsx';
+import DisplayItemList from './DisplayItemList/DisplayItemList.jsx';
+
 
 class App extends Component {
   constructor(props){
@@ -17,17 +19,6 @@ class App extends Component {
   }
 
 
-getAllJobs(){
-  fetch(`/db/job_hunt2`)
-  .then(r=> r.json())
-  .then((data)=>{
-    this.setState({
-      jobs:data
-    });
-  })
-  .catch(err => console.log(err))
-
-}
 //inputs for all val for db rows
 
 updateFormName(e){
@@ -90,24 +81,35 @@ fetch('/db/job_hunt2', {
 
 }
 
-// handleFormSubmit() {
-//   fetch(`/db/jobs_hunt2?name=${this.state.name}`, {
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       method: 'GET',
-
-//     })
-//     .then(this.setState({
-//       name: '',
-//       zipcode: '',
-//       user_id: ''
-//     }))
-//     .then(this.getAllGardens())
-//     .catch(err => console.log(err));
-//   }
 
 
+componentDidMount() {
+  getAllJob()
+  .then(allJobs =>
+    this.setState({ data: allJobs })
+  )
+  .catch((error) => {
+    throw error;
+  })
+}
+
+getAllJob() {
+  return fetch('/db/jobs_hunt2')
+  .then(r => r.json())
+  .then(data => indexByKeyName(data, 'id'));
+}
+
+// getAllJobs(){
+//   fetch(`/db/job_hunt2`)
+//   .then(r=> r.json())
+//   .then((data)=>{
+//     this.setState({
+//       jobs:data
+//     });
+//   })
+//   .catch(err => console.log(err))
+
+// }
 
 
 render(){
@@ -131,9 +133,12 @@ render(){
         postJobs={event => this.postJobs(event)}
 
       />
-      <DisplayItem
+      <DisplayItemList
+        getAllJobs={this.getAllJob.bind(this)}
+        jobs={this.state.jobs}
+        />
 
-       />
+
 
       </div>
 
