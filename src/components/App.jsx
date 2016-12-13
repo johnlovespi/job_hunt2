@@ -5,12 +5,17 @@ import JobForm from './JobForm/JobForm.jsx';
 import DisplayItemList from './DisplayItemList/DisplayItemList.jsx';
 //import Login from './Login/LoginForm.jsx';
 //import Signup from './Signup.jsx';
+//import ApiFetch from './ApiFetch/ApiFetch.jsx';
+import DisplayApiList from './DisplayApiList/DisplayApiList.jsx';
+
+
 
 class App extends Component {
-  constructor(props){
+  constructor(){
     super();
     this.state = {
       jobs: [],
+      apil: [],
       name: '',
       title: '',
       descripition: '',
@@ -103,7 +108,8 @@ fetch('/db/job_hunt2', {
 //getting all jobs to post to the page
 
 componentDidMount() {
-  getAllJobs()
+  this.getAllJobs()
+  this.fetchJobs()
   // console.log(this.state.data)
 }
 
@@ -119,17 +125,28 @@ fetch(`/db/job_hunt2`)
     .catch(err => console.log(err));
   }
 
+
+//external api
+fetchJobs() {
+  console.log('FETCHING')
+  fetch(`/api`)
+  .then(r => r.json())
+  .then((data) => {
+    console.log(data)
+    this.setState({
+      apil: data.results,
+    })
+    console.log('this are api jobs', this.state.apil);
+;
+})
+  .catch(err => console.log(err));
+}
+
+
 //user login/signUp
-
-
 // trackLoginForm(){
-
-
-
 // }
 // trackSignupForm(){
-
-
 // }
 
 //delete button
@@ -148,13 +165,10 @@ fetch(`/db/job_hunt2/${id}`, {
 
 
 
+
 render(){
     return (
-      <div>
-
-
-
-   <body>
+   <div>
       <JobForm
         jobsFormName={this.state.jobsFormName}
         jobsFormTitle={this.state.jobsFormTitle}
@@ -174,16 +188,29 @@ render(){
 
       />
 
+
+
       <DisplayItemList
         getAllJobs={this.getAllJobs.bind(this)}
         deletePost={this.deletePost.bind(this)}
         jobs={this.state.jobs}
         />
-  </body>
-</div>
+
+        <DisplayApiList
+         fetchJobs={this.fetchJobs.bind(this)}
+         apilist={this.state.apil}
+         />
+
+
+
+
+  </div>
+
 
     );
   }
 }
 
 export default App;
+
+

@@ -37,13 +37,7 @@ db.any(`DELETE FROM jobs WHERE id = $1;`[req.params.id])
 
 }
 
-function search
-
-
-
-
-
-
+// function search
 
 
 

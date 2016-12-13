@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 //import JobForm from './JobForm/JobForm.jsx';
 import './DisplayItem.css';
 

@@ -6,9 +6,10 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser  = require('cookie-parser');
 // const usersRouter   = require('./routes/users');
+
+//routes for create ,auth, api
 const authRouter    = require('./routes/auth');
-
-
+const apiRouter = require('./routes/api.js')
 const jobsRouter = require('./routes/jobs.js');
 
 const app = express();
@@ -25,3 +26,4 @@ app.listen(PORT, () => console.log('Server is listening on port', PORT));
 app.use('/db/job_hunt2', jobsRouter);
 // app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+app.use('/api', apiRouter)
