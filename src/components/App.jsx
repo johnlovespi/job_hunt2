@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 // import Landp from './Landp/Landp.jsx';
 import JobForm from './JobForm/JobForm.jsx';
-// import DisplayItem from './DisplayItem/DisplayItem.jsx';
+//import DisplayItem from './DisplayItem/DisplayItem.jsx';
 import DisplayItemList from './DisplayItemList/DisplayItemList.jsx';
-
+//import Login from './Login/LoginForm.jsx';
+//import Signup from './Signup.jsx';
 
 class App extends Component {
   constructor(props){
     super();
     this.state = {
+      jobs: [],
       name: '',
       title: '',
       descripition: '',
@@ -18,6 +20,18 @@ class App extends Component {
     }
   }
 
+   //  Login:{
+   //    username: '',
+   //    password: ''
+   // },
+
+   //  Signup:{
+   //    username: '',
+   //    password: ''
+   //  }
+
+
+
 
 //inputs for all val for db rows
 
@@ -26,26 +40,31 @@ updateFormName(e){
     name: e.target.value,
   });
 }
+
 updateFormTitle(e){
   this.setState({
     title: e.target.value,
   });
 }
+
 updateFormDescription(e){
   this.setState({
     descripition: e.target.value,
   });
 }
+
 updateFormUrl(e){
   this.setState({
     url: e.target.value,
   });
 }
+
 updateFormContact(e){
   this.setState({
     contact: e.target.value,
   });
 }
+
 updateFormPhone(e){
   this.setState({
     phone: e.target.value,
@@ -81,40 +100,61 @@ fetch('/db/job_hunt2', {
 
 }
 
-
+//getting all jobs to post to the page
 
 componentDidMount() {
-  getAllJob()
-  .then(allJobs =>
-    this.setState({ data: allJobs })
-  )
-  .catch((error) => {
-    throw error;
-  })
+  getAllJobs()
+  // console.log(this.state.data)
 }
 
-getAllJob() {
-  return fetch('/db/jobs_hunt2')
+getAllJobs() {
+fetch(`/db/job_hunt2`)
   .then(r => r.json())
-  .then(data => indexByKeyName(data, 'id'));
-}
+  .then((data) => {
+      this.setState({
+        jobs: data
+      });
+      console.log("this is all jobs: ", this.state.jobs);
+    })
+    .catch(err => console.log(err));
+  }
 
-// getAllJobs(){
-//   fetch(`/db/job_hunt2`)
-//   .then(r=> r.json())
-//   .then((data)=>{
-//     this.setState({
-//       jobs:data
-//     });
-//   })
-//   .catch(err => console.log(err))
+//user login/signUp
+
+
+// trackLoginForm(){
+
+
 
 // }
+// trackSignupForm(){
+
+
+// }
+
+//delete button
+deletePost(id) {
+fetch(`/db/job_hunt2/${id}`, {
+  method: 'delete'
+})
+  .then(() => {
+    let jobs = this.state.jobs.filter((jobs)=> {
+      return jobs.id !== id;
+    });
+    this.setState({ jobs });
+  })
+    .catch(err => console.log(err));
+}
+
 
 
 render(){
     return (
       <div>
+
+
+
+   <body>
       <JobForm
         jobsFormName={this.state.jobsFormName}
         jobsFormTitle={this.state.jobsFormTitle}
@@ -133,19 +173,17 @@ render(){
         postJobs={event => this.postJobs(event)}
 
       />
+
       <DisplayItemList
-        getAllJobs={this.getAllJob.bind(this)}
+        getAllJobs={this.getAllJobs.bind(this)}
+        deletePost={this.deletePost.bind(this)}
         jobs={this.state.jobs}
         />
-
-
-
-      </div>
+  </body>
+</div>
 
     );
   }
 }
 
 export default App;
-
-

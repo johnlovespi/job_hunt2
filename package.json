@@ -27,7 +27,11 @@
     "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
     "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg-promise": "^5.2.7",
     "react-router": "^3.0.0"

@@ -10,13 +10,13 @@ return (
       <h2>Post A Job</h2>
         <div id="form">
           <form>
-            <input type="text" placeholder="name"        name="name"         onChange={props.updateFormName} />
-            <input type="text" placeholder="title"       name="title"        onChange={props.updateFormTitle} />
-            <input type="text" placeholder="description" name="description"  onChange={props.updateFormDescription} />
-            <input type="text" placeholder="url"         name="url"          onChange={props.updateFormUrl} />
-            <input type="text" placeholder="contact"   name="contact"          onChange={props.updateFormContact} />
-            <input type="text" placeholder="phone"    name="phone"             onChange={props.updateFormPhone} />
-            <button onClick={props.postJobs}> Submit Post </button>
+           <p><strong>Name</strong></p><input type="text" placeholder=""        name="name"         onChange={props.updateFormName} />
+           <p><strong>title</strong></p><input type="text" placeholder=""       name="title"        onChange={props.updateFormTitle} />
+           <p><strong>description</strong></p><input type="text" placeholder="" name="description"  onChange={props.updateFormDescription} />
+           <p><strong>url</strong></p><input type="text" placeholder=""         name="url"          onChange={props.updateFormUrl} />
+           <p><strong>contact</strong></p><input type="text" placeholder=""   name="contact"          onChange={props.updateFormContact} />
+           <p><strong>phone</strong></p><input type="text" placeholder=""    name="phone"             onChange={props.updateFormPhone} />
+           <button onClick={props.postJobs}> Submit Post </button>
           </form>
         </div>
     </div>

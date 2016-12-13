@@ -8,8 +8,10 @@ import { Route, IndexRoute } from 'cd -router';
 module.exports = (
 
   <Route path ="/" component={App}>
-    <Route path ="/home" component={Landingpage}>
-      <Route path ="/JobForm" component={JobForm}>
-
+    <Route path ="/" component={Landingpage}/>
+      <Route path ="/" component={JobForm}/>
+      </Route>
+      </Route>
+      </Route>
 </Route>
 );

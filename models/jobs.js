@@ -1,14 +1,16 @@
 const db = require('../lib/dbConnect.js');
 
-function getJobs(req, res, next){
-  db.many('SELECT * FROM jobs')
-  .then(data => res.row  = data)
-  .then(() => next())
-  .catch((err)=>{
-    console.log(err);
-    next(err);
-    });
+
+function getAllJobs(req, res, next) {
+  db.any('SELECT * FROM jobs;')
+  .then((jobs) => {
+    res.jobs = jobs;
+    next();
+  })
+  .catch(error => next(error));
 }
+
+//went from many to any
 
 function createJobs(req,res,next){
   console.log('asf');
@@ -28,7 +30,29 @@ function createJobs(req,res,next){
     });
 }
 
+function deleteJobs(req,res,next){
+db.any(`DELETE FROM jobs WHERE id = $1;`[req.params.id])
+ .then(next())
+ .catch(err => next(err));
+
+}
+
+function search
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = {
   createJobs,
-  getJobs
+  getAllJobs,
+  deleteJobs
 };
