@@ -20,7 +20,6 @@ router.route('/login')
   .post(authenticate, (req, res, next) => res.json({message: 'user succesfully logged in'}));
 
 
-
 module.exports = router;
 
 // passport.authenticate('local', { session: false }),

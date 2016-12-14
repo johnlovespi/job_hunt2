@@ -4,9 +4,7 @@ import { Link } from 'react-router';
 
 // create a React Component called _App_
 class LoginForm extends Component {
-
-
-  render(){
+render(){
     return (
       <div className="intro-pages">
        <div>
@@ -19,6 +17,5 @@ class LoginForm extends Component {
     );
   }
 }
-
 export default LoginForm;
 

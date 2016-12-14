@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import './DisplayApiList.css';
 
 import DisplayApiItem from '../DisplayApiItem/DisplayApiItem.jsx';
 
 
 class DisplayApiList extends Component {
-
-render(){
+  showApi() {
     console.log('*********', this.props.apilist);
-    const apistuff = this.props.apilist.map((apil,index) =>
-        <DisplayApiItem
+      return this.props.apilist.map((apil,index) =>
+
+        <DisplayApiList
             jobtitle={apil.jobtitle}
             company={apil.company}
             city={apil.city}
@@ -17,11 +18,13 @@ render(){
             url={apil.url}
             key={index}
           />
-    )
 
+   );
+}
+render(){
     return(
       <div className="list-cont">
-       {apistuff}
+       {this.showApi()}
       </div>
       );
 
@@ -29,13 +32,3 @@ render(){
 
 }
 export default DisplayApiList;
-
-
-//   componentWillMount() {
-//     this.props.fetchJobs();
-// }
-          // <button onClick={this.props.searchJobs}></button>
-          // <input
-            // type = "hidden"
-            // placeholder= "searchJobs"
-            // onChange={this.props.trackSearch}/>

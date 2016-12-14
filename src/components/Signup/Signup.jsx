@@ -4,20 +4,13 @@ import { Link } from 'react-router';
 
 // create a React Component called _App_
 class Signup extends Component {
-
-
-
   render(){
     return (
-
-     <div className="intro-pages2">
-
+    <div className="intro-pages2">
         <input onChange={this.props.trackSignupForm} type="text" placeholder="username"/>
         <input onChange={this.props.trackSignupForm} type="text" placeholder="password"/>
         <button onClick={this.props.postSignup}>Signup</button>
      </div>
-
-
     );
   }
 }
