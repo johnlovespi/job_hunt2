@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "React application template using webpack",
   "main": "server.js",
-   "engines": {
-   "node": "6.6.0"
- },
+  "engines": {
+    "node": "6.6.0"
+  },
   "private": true,
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
@@ -33,6 +33,7 @@
     "express": "^4.14.0",
     "jsonwebtoken": "^7.2.1",
     "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
