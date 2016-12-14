@@ -1,42 +1,35 @@
-import React, { Component} 'react';
-import DisplayItemList from './DisplayItemList/DisplayItemList.css';
-import DisplayItem from './DisplayItem/DisplayItem.jsx';
-
+import React, { Component } from 'react';
+import DisplayItem from '../DisplayItem/DisplayItem.jsx';
+import './DisplayItemList.css';
 
 class DisplayItemList extends Component {
-
-  componentWillMount() {
-    this.props.getAllJobs();
-  }
-
-  showCollection(collection) {
-    return collection.map((jobs,index) =>
-     <article className = "border"
-        key={index} onClick={()=>this.props.changeSelection(index)}>
-          <DisplayItem
-            key={jobs.index}
-            name={jobs.name}
-            title={jobs.title}
-            descripition={jobs.descripition}
-            url={jobs.url}
-            contact={jobs.contact}
-            phone={jobs.phone}
-          />
-    </article>
+showCollection(collection) {
+    return collection.map((job,index) =>
+      <article
+        className = "border_two"
+        key={index}
+        onClick={()=>this.props.changeSelection(index)}>
+        <DisplayItem
+          name={job.name}
+          title={job.title}
+          descripition={job.descripition}
+          url={job.url}
+          contact={job.contact}
+          phone={job.phone}
+          deletePost={this.props.deletePost}
+        />
+      </article>
   );
-
 }
-
   render(){
     return(
-          <div className="list-container" >
-            {this.showCollection(this.props.collection)}
-          </div>
-
-      )
+      <div className="list-container" >
+      {this.showCollection(this.props.jobs)}
+      </div>
+    )
   }
-
 }
 
 
 export default DisplayItemList;
+            // {this.showCollection(this.props.listArray)}

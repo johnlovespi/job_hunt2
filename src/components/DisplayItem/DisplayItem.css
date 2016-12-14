@@ -1,6 +1,8 @@
 .box{
-  width: 700px;
-  height: 500px;
-  border: 1px solid black;
+  width: 500px;
+  height: 350px;
+/*  border: 1px solid black;*/
+  padding-left: 90px;
 
 }
+

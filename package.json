@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "React application template using webpack",
   "main": "server.js",
+   "engines": {
+   "node": "6.6.0"
+ },
   "private": true,
   "scripts": {
     "clean": "rm -rf dist && rm -rf node_modules",
-    "heroku-prebuild": "scripts/deployment_react.sh",
-    "heroku-postbuild": "scripts/deployment_cleanup.sh",
+    "heroku-prebuild": "bash ./scripts/deployment_react.sh",
+    "heroku-postbuild": "bash ./scripts/deployment_cleanup.sh",
     "start": "node server.js",
     "rebuild": "webpack -d --progress --colors",
-    "watch": "webpack -d --progress --watch"
+    "watch": "webpack -d --progress --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "",
@@ -27,7 +31,11 @@
     "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
     "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg-promise": "^5.2.7",
     "react-router": "^3.0.0"
