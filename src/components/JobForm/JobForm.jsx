@@ -16,7 +16,7 @@ return (
            <p><strong>url</strong></p><input type="text" placeholder=""         name="url"          onChange={props.updateFormUrl} />
            <p><strong>contact</strong></p><input type="text" placeholder=""   name="contact"          onChange={props.updateFormContact} />
            <p><strong>phone</strong></p><input type="text" placeholder=""    name="phone"             onChange={props.updateFormPhone} />
-           <button onClick={props.postJobs}> Submit Post </button>
+           <button id="btn" onClick={props.postJobs}> Submit Post </button>
           </form>
         </div>
     </div>

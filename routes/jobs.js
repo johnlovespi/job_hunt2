@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../lib/dbConnect.js');
 const { createJobs, getAllJobs, deleteJobs } = require('../models/jobs.js')
 
 
@@ -13,7 +14,7 @@ router.post('/post', createJobs,(req,res)=> {
 });
 
 
-router.delete('/delete', deleteJobs,(req,res)=>{
+router.delete('/:id', deleteJobs,(req,res)=>{
   res.json(res.rows);
  res.json({ message: 'Successfully Deleted' });
 

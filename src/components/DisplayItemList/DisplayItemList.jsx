@@ -17,15 +17,17 @@ showCollection(collection) {
           contact={job.contact}
           phone={job.phone}
           deletePost={this.props.deletePost}
+          id={job.id}
         />
       </article>
   );
 }
   render(){
     return(
-      <div className="list-container" >
+      <div className="list-container">
       {this.showCollection(this.props.jobs)}
       </div>
+
     )
   }
 }

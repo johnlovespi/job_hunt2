@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import style from './SignupForm.css';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 
 // create a React Component called _App_
 class SignupForm extends Component {
@@ -9,29 +9,13 @@ class SignupForm extends Component {
 
   render(){
     return (
+  <div className="intro-pages">
+        <div id='link-container'>
+              <input id="input" onChange={this.props.trackSignupForm} type="text" placeholder="username"/>
+              <input id="input" onChange={this.props.trackSignupForm} type="password" placeholder="password"/>
+              <button id="button" onClick={this.props.postSignup}>Signup</button>
+        </div>
 
-      <div className="intro-pages">
-         <h1 className="intro-title"></h1>
-         <div id='link-container'>
-        <input
-          type="text"
-          placeholder="email"
-          value={this.props.signup.username}
-          onChange={this.props.updateFormSignUsername}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={this.props.signup.password}
-          onChange={this.props.updateFormSignPassword}
-        />
-        <Link to="login">
-        <button onClick={this.props.handleSign}>
-          signup!
-        </button>
-        </Link>
-
-      </div>
 
   </div>
     );

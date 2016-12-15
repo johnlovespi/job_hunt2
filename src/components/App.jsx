@@ -167,6 +167,7 @@ fetchJobs() {
 
 //delete button
 deletePost(id) {
+  console.log(id)
 fetch(`/db/job_hunt2/${id}`, {
   method: 'delete'
 })

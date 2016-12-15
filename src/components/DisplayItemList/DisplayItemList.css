@@ -5,13 +5,19 @@
 
 .border_two{
   margin-left: 200px;
-
+  padding:10px;
+  font-weight: 200px;
 
 }
 
 .list-container{
-  margin-top: 180px;
+  margin-top: 79px;
   padding-left: 50px;
 
 }
+/*.line{
+  width: 10px;
+  height: 2px;
+  border:1px solid black;
+}*/
 

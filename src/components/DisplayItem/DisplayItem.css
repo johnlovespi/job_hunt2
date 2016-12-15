@@ -1,8 +1,20 @@
 .box{
   width: 500px;
-  height: 350px;
-/*  border: 1px solid black;*/
+  height: 280px;
+}
+
+h3{
+  font-family: 'Rajdhani', sans-serif;
   padding-left: 90px;
+  font-weight: 550;
+
+}
+
+
+h2{
+  font-family: 'Rajdhani', sans-serif;
+  padding-left: 90px;
+  font-weight: 450;
 
 }
 

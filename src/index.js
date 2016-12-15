@@ -15,7 +15,7 @@ ReactDOM.render((
 
   <Route path ="/" component={App}>
   <Route path="/login" component={Login}>
-  <Route path="Signup" component={Signup}>
+  <Route path="/signup" component={Signup}>
     </Route>
   </Route>
    </Route>

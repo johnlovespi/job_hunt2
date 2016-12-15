@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './LoginForm.css';
-import { Link } from 'react-router';
+//import { Link } from 'react-router';
 
 // create a React Component called _App_
 class LoginForm extends Component {
@@ -11,38 +11,20 @@ class LoginForm extends Component {
       <div className="intro-pages">
        <h1 className="intro-title">Log in</h1>
        <div id='link-container'>
-        <input
-          type="text"
-          placeholder="email"
-          value={this.props.login.username}
-          onChange={this.props.updateFormLogUsername}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={this.props.login.password}
-          onChange={this.props.updateFormLogPassword}
-        />
-        <Link to="home">
-        <button onClick={this.props.handleLog}>
+          <div id="w1">
+          <input id="input" onChange={this.props.trackLoginForm} type="text" placeholder="username"/>
+          <input id="input" onChange={this.props.trackLoginForm} type="password" placeholder="password"/>
+          <button id="button" onClick={this.props.postLogin}>Login</button>
+        </div>
 
-        </button>
-         </Link>
+
       </div>
-      </div>
+    </div>
     );
   }
 }
 
 export default LoginForm;
-
-
-
-
-
-
-
-
 
 
 
