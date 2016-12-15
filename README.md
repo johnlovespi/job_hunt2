@@ -1,5 +1,5 @@
 # job_hunt2
-My application helps GA students who are looking for help and/or assitance in there current projects 
+My application helps GA students who are looking for assitance in there current projects 
 A user will be able to posts jobs in detail 
 Name:
 Title: 
