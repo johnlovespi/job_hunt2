@@ -1,5 +1,5 @@
 .box{
-<<<<<<< HEAD
+
   width: 500px;
   height: 280px;
 }
@@ -8,11 +8,11 @@ h3{
   font-family: 'Rajdhani', sans-serif;
   padding-left: 90px;
   font-weight: 550;
-=======
+
   width: 700px;
   height: 350px;
   border: 1px solid black;
->>>>>>> 5fc7f8968c3dcc407bac0a6b29eee821b07ac04d
+
 
 }
 
