@@ -14,11 +14,10 @@ router.post('/post', createJobs,(req,res)=> {
 });
 
 
+
 router.delete('/:id', deleteJobs,(req,res)=>{
   res.json(res.rows);
- res.json({ message: 'Successfully Deleted' });
-
-
+  res.json({ message: 'Successfully Deleted' });
 })
 
 

@@ -2,11 +2,13 @@
 /*  border: 1px solid black;*/
   width: 500px;
   height: 500px;
+
   margin-top: 80px;
   float: right;
 }
 
 h2{
+
 color:#e0e2e1;
 font-size: 27px;
 font-family:'Raleway', sans-serif;
@@ -20,12 +22,9 @@ font-family:'Raleway', sans-serif;
 
 }
 
-.box{
 
-}
 
 form{
-
   padding-bottom:80px;
   margin:10px;
 
@@ -35,11 +34,16 @@ input{
 width:300px;
 height: 35px;
 
+
+
+display:block;
+
 border-radius: 3px;
 
 }
 
 button{
+
        margin-top: 25px;
     border-radius: 10px;
     font-size: 14px;
@@ -63,4 +67,10 @@ button :hover{
 
 p{
   padding-top:28px;
+
+  margin-top: 15px;
+  border-radius: 3px;
+  height: 20px;
+  cursor: pointer;
+
 }

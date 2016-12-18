@@ -42,9 +42,6 @@ db.any(`DELETE FROM jobs WHERE id = $1;`[req.params.id])
 
 
 
-
-
-
 module.exports = {
   createJobs,
   getAllJobs,

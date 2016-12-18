@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-// import Landp from './Landp/Landp.jsx';
 import JobForm from './JobForm/JobForm.jsx';
 //import DisplayItem from './DisplayItem/DisplayItem.jsx';
 import DisplayItemList from './DisplayItemList/DisplayItemList.jsx';
+
 //import Login from './Login/LoginForm.jsx';
 //import Signup from './Signup.jsx';
 //import ApiFetch from './ApiFetch/ApiFetch.jsx';
 import DisplayApiList from './DisplayApiList/DisplayApiList.jsx';
 import './App.css';
+
 
 
 
@@ -23,9 +24,7 @@ class App extends Component {
       url: '',
       contact:'',
       phone:''
-    }
-
-
+  }
 }
 
 
@@ -123,6 +122,7 @@ fetch(`/db/job_hunt2`)
   }
 
 
+
 //external api
 fetchJobs() {
   console.log('FETCHING')
@@ -166,8 +166,56 @@ fetchJobs() {
   // }
 
 //delete button
+// deletePost(id) {
+//   console.log(id)
+//  }
+
+
+//external api
+fetchJobs() {
+  console.log('FETCHING')
+  fetch(`/api`)
+  .then(r => r.json())
+  .then((data) => {
+    console.log(data)
+    this.setState({
+      apil: data.results,
+    })
+    console.log('this are api jobs', this.state.apil);
+})
+  .catch(err => console.log(err));
+};
+
+
+//user login/signUp
+  trackSignupForm(e) {
+    let fieldsArr = e.target.parentElement.childNodes
+    //skylar pls remember to consolelog fieldsArr
+    this.setState({
+      signupForm: {
+        username: fieldsArr[0].value,
+        password: fieldsArr[1].value
+      }
+    }, () => {
+      console.log(this.state)
+    })
+  }
+
+  trackLoginForm(e) {
+    let fieldsArr = e.target.parentElement.childNodes
+    this.setState({
+      loginForm: {
+        username: fieldsArr[0].value,
+        password: fieldsArr[1].value
+      }
+    }, () => {
+      console.log(this.state)
+    })
+  }
+
+//delete button
 deletePost(id) {
-  console.log(id)
+
 fetch(`/db/job_hunt2/${id}`, {
   method: 'delete'
 })
@@ -185,6 +233,17 @@ fetch(`/db/job_hunt2/${id}`, {
 render(){
     return (
    <div>
+
+
+    <Signup
+          trackSignupForm={this.trackSignupForm.bind(this)}
+          postSignup={this.postSignup.bind(this)}
+        />
+        <Login
+          trackLoginForm={this.trackLoginForm.bind(this)}
+          postLogin={this.postLogin.bind(this)}
+          logout={this.logout.bind(this)}
+        />
 
 
 

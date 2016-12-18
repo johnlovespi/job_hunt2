@@ -14,10 +14,11 @@ ReactDOM.render((
  <Router history={browserHistory}>
 
   <Route path ="/" component={App}>
+<<<<<<< HEAD
   <Route path="/login" component={Login}>
   <Route path="/signup" component={Signup}>
     </Route>
-  </Route>
+   </Route>
    </Route>
 </Router>
 ), document.querySelector('#root-container'));
