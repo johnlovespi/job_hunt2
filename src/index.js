@@ -6,7 +6,8 @@ import App from './components/App.jsx';
 import Login from './components/Login/LoginForm.jsx';
 import Signup from './components/Signup/Signup.jsx';
 // import Landp from './Landp/Landp.jsx'
-import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
+import routes from './components/routes.js';
+import { Router, Route, Link, hashHistory } from 'react-router';
 
 // mount our App at #container
 // module.exports = ()
